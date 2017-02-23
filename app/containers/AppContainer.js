@@ -1,0 +1,22 @@
+'use strict';
+
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions';
+import Home from './Home';
+
+class AppContainer extends Component {
+  render() {
+    return(
+      <Home {...this.props} />
+    )
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+/* state parameter is the state that whole application is in*/
+export default connect((state) => {return {} }, mapDispatchToProps)(AppContainer);
